@@ -5,9 +5,9 @@ at least one input file must also necessarily expand the size of at
 least one other possible input file. This is a direct application of the
 [pigeonhole principle](https://en.wikipedia.org/wiki/Pigeonhole_principle).
 A compression algorithm that claims to never increase the size of any
-input, while at the same time reducing the size of at least *some*
+input, while at the same time reducing the size of at least _some_
 inputs (it's not the trivial do-nothing compression that, by definition,
-preserves the length of the input), is called *paradoxical compression*.
+preserves the length of the input), is called _paradoxical compression_.
 
 Paradoxical compression is mathematically impossible. This repository
 contains a [description](doc/paradox-compress.pdf) of how to nonetheless
@@ -24,9 +24,9 @@ transforming the question from "is it mathematically possible?" to "can
 I claim to do it and not being detected as a fraud?". This change of
 model makes paradoxical compression possible.
 
-**Warning:** "Paradoxical compression" is only about *not increasing*
+**Warning:** "Paradoxical compression" is only about _not increasing_
 the length of any input. This is NOT "infinite compression", in which it
-is claimed that every possible input can be *reduced* in size. There
+is claimed that every possible input can be _reduced_ in size. There
 is no shortage of scammers who peddle bogus infinite compression
 schemes; what I describe here will not help them. Infinite compression
 is mathematically impossible, but a lot more impossible than paradoxical
@@ -49,7 +49,7 @@ advantage can be leveraged out of shortened data, i.e. in the presence
 of some metadata that can identify the length of each individual
 message. In almost all cases, an extra "compressed / not compressed"
 flag can be smuggled somewhere in such metadata, which is enough to
-avoid paylooad expansion through compression without using any of the
+avoid payload expansion through compression without using any of the
 stuff described here. Thus, there should be little point in reusing the
 methods and code from this repository in any tangible software project.
 As a mathematical recreation, though, paradoxical compression is sort of
@@ -60,16 +60,16 @@ fun.
 The [paper](doc/paradox-compress.pdf) includes a detailed description
 of the concept and its realization. Two instantiations are described:
 
-  - A simple instantiation requires the compressor and decompressor to
-    share a secret key; this is a restrictive usage context, but it
-    allows for an efficient, low-overhead implementation using only
-    a MAC (message authentication code).
+- A simple instantiation requires the compressor and decompressor to
+  share a secret key; this is a restrictive usage context, but it
+  allows for an efficient, low-overhead implementation using only
+  a MAC (message authentication code).
 
-  - A more complex instantiation is keyless: no secret is needed, so that
-    the compressor and decompressor may, for instance, be code that runs
-    on anybody's machine. The cryptographic tool used here is a
-    *verifiable delay function* (VDF), specifically the one [described
-    by Wesolowski at Eurocrypt 2019](https://eprint.iacr.org/2018/623).
+- A more complex instantiation is keyless: no secret is needed, so that
+  the compressor and decompressor may, for instance, be code that runs
+  on anybody's machine. The cryptographic tool used here is a
+  _verifiable delay function_ (VDF), specifically the one [described
+  by Wesolowski at Eurocrypt 2019](https://eprint.iacr.org/2018/623).
 
 ## Implementation
 
